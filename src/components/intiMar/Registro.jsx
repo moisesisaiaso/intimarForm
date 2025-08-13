@@ -265,7 +265,7 @@ const Registro = ({}) => {
                           </div>
                         </div>
         
-                        <div className={styles.formRow}>
+                        
                           <div className={styles.fieldGroup}>
                             <label className={styles.label}>
                               Alergias
@@ -277,7 +277,7 @@ const Registro = ({}) => {
                             />
                             {errors.allergies && <span className={styles.error}>{errors.allergies.message}</span>}
                           </div>
-                        </div>
+                        
                         
                         <div className={styles.optionalFields}>
                           
