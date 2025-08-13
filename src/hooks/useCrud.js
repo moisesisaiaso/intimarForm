@@ -16,7 +16,7 @@ export const useCrud = () => {
       
           return response.data;
         } catch (error) {
-          throw new Error(error.response?.data?.message || "Error al enviar datos");
+          throw new Error(error.response?.data?.message || "Error al enviar datos, vuelva a realizar el envio o comuniquese con el administrador");
         }
    };
     

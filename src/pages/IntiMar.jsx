@@ -50,7 +50,7 @@ const isMobile = useMediaQuery({ maxWidth: 768 });
                  >
                  <span className={stylesCarta.whatsappIcon}>📱</span>
                  {
-                  !isMobile &&  <span>Contactanos</span>
+                  !isMobile &&  <span>Contactar</span>
                  }
                  <span className={stylesCarta.whatsappNumber}>+51 981 318 866</span>
                  </a>
