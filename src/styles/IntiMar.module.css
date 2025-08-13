@@ -361,6 +361,7 @@
 .textarea {
   resize: vertical;
   min-height: 5rem;
+  width: 100% !important;
 }
 
 .error {
@@ -754,7 +755,7 @@
 }
 
 .optionalFields {
-  margin-top: 0.5rem;
+  
   padding-top: 2rem;
   border-top: 2px solid var(--intimar-light-teal);
 }

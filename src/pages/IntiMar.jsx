@@ -43,7 +43,7 @@ const isMobile = useMediaQuery({ maxWidth: 768 });
          
            <div className={stylesCarta.whatsappContainer}>
                  <a 
-                    href="https://wa.me/51999123456?text=Hola,%20me%20interesa%20hacer%20una%20reserva%20en%20Inti-MAR" 
+                    href="https://wa.me/51981318866?text=Hola,%20me%20interesa%20hacer%20una%20reserva%20en%20Inti-MAR" 
                     className={stylesCarta.whatsappButton}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -52,7 +52,7 @@ const isMobile = useMediaQuery({ maxWidth: 768 });
                  {
                   !isMobile &&  <span>Contactanos</span>
                  }
-                 <span className={stylesCarta.whatsappNumber}>+51 999 123 456</span>
+                 <span className={stylesCarta.whatsappNumber}>+51 981 318 866</span>
                  </a>
            </div>
         </div>

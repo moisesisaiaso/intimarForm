@@ -91,12 +91,12 @@ const Registro = ({}) => {
                 email: "",
                 countryCode: "",
                 cellphone: "",
-                address: "",
+                
                 allergies: "",
                 dni: "",
                 ruc: "",
                 numero_pasaporte: "",
-                languaje: "es", 
+                 
             });
         
            /*Logica de redireccion */
@@ -155,7 +155,7 @@ const Registro = ({}) => {
                   <div className={styles.formCard}>
                     <div className={styles.formHeader}>
                       <h3 className={styles.formTitle}>
-                        <span className={styles.formTitleClientse}> Comienza tu experiencia</span>
+                        <span className={styles.formTitleClientse}> Registrarme como cliente</span>
                         <span className={styles.formTitleRegistro}> In</span> 
                         <span className={styles.logoTextti}>ti</span>
                         <span className={styles.logoTextMar}>-MAR</span>
@@ -277,30 +277,9 @@ const Registro = ({}) => {
                             />
                             {errors.allergies && <span className={styles.error}>{errors.allergies.message}</span>}
                           </div>
-                          <div className={styles.fieldGroup}>
-                            <label className={styles.label}>
-                              Idioma
-                            </label>
-                            <select
-                              className={styles.select}
-                              {...register('language')}
-                              defaultValue="es"
-                            >
-                              <option value="">Seleccionar idioma</option>
-                              <option value="español">Español</option>
-                              <option value="ingles">Inglés</option>
-                              <option value="frances">Francés</option>
-                              <option value="portugues">Portugués</option>
-                              <option value="italiano">Italiano</option>
-                              <option value="aleman">Alemán</option>
-                            </select>
-                            {errors.language && <span className={styles.error}>{errors.language.message}</span>}
-                          </div>
                         </div>
-        
                         
                         <div className={styles.optionalFields}>
-                            <h4 className={styles.optionalTitle}>Información Adicional</h4>
                           
         
                             <div className={styles.formRow}>
@@ -331,6 +310,18 @@ const Registro = ({}) => {
                                     <span className={styles.radioCustom}></span>
                                     Pasaporte
                                   </label>
+                                  <label className={styles.radioLabel}>
+                                    <input
+                                      type="radio"
+                                      name="documentType"
+                                      value="ruc"
+                                      checked={documentType === 'ruc'}
+                                      onChange={() => setDocumentType('ruc')}
+                                      className={styles.radioInput}
+                                    />
+                                    <span className={styles.radioCustom}></span>
+                                    Ruc
+                                  </label>
                                 </div>
                               </div>
                               <div className={styles.fieldGroup}>
@@ -355,7 +346,7 @@ const Registro = ({}) => {
                                     />
                                     {errors.dni && <span className={styles.error}>{errors.dni.message}</span>}
                                   </>
-                                ) : (
+                                ) : documentType === 'pasaporte' ? (
                                   <>
                                     <label className={styles.label}>Pasaporte</label>
                                     <input
@@ -377,42 +368,34 @@ const Registro = ({}) => {
                                       <span className={styles.error}>{errors.numero_pasaporte.message}</span>
                                     )}
                                   </>
+                                ):(
+                                  <div className={styles.fieldGroup}>
+                                  <label className={styles.label}>RUC</label>
+                                  <input
+                                    type="text"
+                                    className={styles.input}
+                                    placeholder="12345678901"
+                                    onKeyDown={(e) => handleKeyDown(e, "ruc")}
+                                    {...register('ruc', {
+                                      pattern: {
+                                        value: /^[0-9]*$/,
+                                        message: 'El RUC solo debe contener números'
+                                      },
+                                      minLength: {
+                                        value: 10,
+                                        message: "El RUC debe tener al menos 10 dígitos"
+                                      }
+                                    })}
+                                  />
+                                  {errors.ruc && <span className={styles.error}>{errors.ruc.message}</span>}
+                                  </div>
                                 )}
                               </div>
                             </div>
                             
-                            <div className={styles.formRow}>
-                              <div className={styles.fieldGroup}>
-                                <label className={styles.label}>RUC</label>
-                                <input
-                                  type="text"
-                                  className={styles.input}
-                                  placeholder="12345678901"
-                                  onKeyDown={(e) => handleKeyDown(e, "ruc")}
-                                  {...register('ruc', {
-                                    pattern: {
-                                      value: /^[0-9]*$/,
-                                      message: 'El RUC solo debe contener números'
-                                    },
-                                    minLength: {
-                                      value: 10,
-                                      message: "El RUC debe tener al menos 10 dígitos"
-                                    }
-                                  })}
-                                />
-                                {errors.ruc && <span className={styles.error}>{errors.ruc.message}</span>}
-                              </div>
                               
-                              <div className={styles.fieldGroup}>
-                                <label className={styles.label}>Dirección</label>
-                                <input
-                                  type="text"
-                                  className={styles.input}
-                                  placeholder="Tu dirección completa"
-                                  {...register('address')}
-                                />
-                              </div>
-                            </div>
+                              
+                            
                         </div>
                         
         
@@ -421,7 +404,7 @@ const Registro = ({}) => {
                           className={styles.submitButton}
                           disabled={isSubmitting}
                         >
-                          👤 {isSubmitting ? 'Registrando...' : 'Registrar Cliente'}
+                          👤 {isSubmitting ? 'Registrando...' : 'Registrarme'}
                         </button>
                         
                       </form>
