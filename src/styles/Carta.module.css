@@ -1018,6 +1018,11 @@
   .whatsappContainer {
     width: 14rem;
   }
+
+  .whatsappButton{
+    gap: 0 !important;
+  }
+
   .infoRow {
     flex-direction: column;
     gap: 0.25rem;

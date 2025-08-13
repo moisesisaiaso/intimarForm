@@ -6,7 +6,7 @@ const Footer = () => {
         <div className={styles.footerContainer}> 
           <div className={styles.footerBottom}>
             
-            <p>© 2024 Inti-MAR Paracas Bay. Todos los derechos reservados.</p>
+            <p>© 2025 Inti-MAR Paracas Bay. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
